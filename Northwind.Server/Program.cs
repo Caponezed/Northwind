@@ -30,6 +30,7 @@ namespace Northwind.Server
 
             app.UseAuthorization();
 
+            var context = new NorthwindContext();
 
             app.MapControllers();
 
