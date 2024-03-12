@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header-nav-list {
+  display: flex;
+}
+.header-nav-list a {
+  min-width: fit-content;
+}

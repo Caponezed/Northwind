@@ -1,0 +1,14 @@
+<mat-toolbar [ngClass]="cssClasses" color="accent">
+  <span class="header-title">
+    🍃
+    {{ appTitle }}
+  </span>
+
+  <mat-nav-list role="navigation" class="header-nav-list">
+    <a mat-list-item href="#" [activated]="activatedLink">Products</a>
+    <a mat-list-item href="#">Categories</a>
+    <a mat-list-item href="#">Territories</a>
+    <a mat-list-item href="#">Suppliers</a>
+    <a mat-list-item href="#">Shippers</a>
+  </mat-nav-list>
+</mat-toolbar>
