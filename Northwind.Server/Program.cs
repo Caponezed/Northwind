@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+
 namespace Northwind.Server
 {
     public class Program
@@ -14,6 +16,16 @@ namespace Northwind.Server
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<NorthwindContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            builder.Services.AddCors(options => options.AddPolicy(name: "NorthwindOrigins", policy =>
+            {
+                policy.WithOrigins("https://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            }));
+
             var app = builder.Build();
 
             app.UseDefaultFiles();
@@ -26,11 +38,11 @@ namespace Northwind.Server
                 app.UseSwaggerUI();
             }
 
+            app.UseCors("NorthwindOrigins");
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
-            var context = new NorthwindContext();
 
             app.MapControllers();
 
