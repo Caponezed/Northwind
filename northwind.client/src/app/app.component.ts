@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, NgModule, OnInit } from '@angular/core';
+import { FetchingService } from './services/fetching.service';
+import Product from './Models/Product';
 
 @NgModule({
   imports: [],
@@ -12,9 +14,20 @@ class AppModule {}
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private fetchingService: FetchingService) {}
 
-  ngOnInit() {}
+  products?: Product[];
+  ngOnInit() {
+    this.getAllProducts();
+  }
 
   appTitle = 'Northwind';
+
+  getAllProducts() {
+    this.fetchingService
+      .getAllItems<Product[]>('products')
+      .subscribe((products) => {
+        this.products = products;
+      });
+  }
 }
