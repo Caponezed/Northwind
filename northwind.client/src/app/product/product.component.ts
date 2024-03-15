@@ -7,13 +7,10 @@ import Product from '../Models/Product';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent {
+  constructor() {}
   @Input() product?: Product;
-
-  isInStock?: boolean = this.product?.unitsInStock !== 0;
 
   cssClasses = {
     'product-card': true,
-    'in-stock': this.isInStock,
-    'out-of-stock': !this.isInStock,
   };
 }

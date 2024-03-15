@@ -1,7 +1,11 @@
 <mat-card [ngClass]="cssClasses">
   <mat-card-header>
-    <mat-card-title>{{ product?.productName }}</mat-card-title>
+    <mat-card-title class="product-title">{{
+      product?.productName
+    }}</mat-card-title>
   </mat-card-header>
+
+  <img mat-card-image [src]="product?.imageUrl" class="card-image" />
 
   <mat-card-content>
     <p>Description: {{ product?.productDescription }}</p>
@@ -10,4 +14,13 @@
     <p>Quantity per unit: {{ product?.quantityPerProduct }}</p>
     <p>Units in stock: {{ product?.unitsInStock }}</p>
   </mat-card-content>
+
+  <mat-card-actions class="product-buttons">
+    <button mat-button>
+      <span class="material-symbols-outlined product-button">add</span>
+    </button>
+    <button mat-button>
+      <span class="material-symbols-outlined product-button">favorite</span>
+    </button>
+  </mat-card-actions>
 </mat-card>

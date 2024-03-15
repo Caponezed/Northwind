@@ -9,6 +9,7 @@ export default class Product {
     public productPrice?: number,
     public unitsOnOrder?: number,
     public reorderLevel?: number,
-    public discounted?: number
+    public discounted?: number,
+    public imageUrl?: string
   ) {}
 }

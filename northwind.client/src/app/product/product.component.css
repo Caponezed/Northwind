@@ -1,11 +1,24 @@
 .product-card {
-  min-width: 300px;
-  min-height: 300px;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 800px;
+  background-color: lightgrey;
 }
-.in-stock {
-  background-color: rgb(90, 120, 90);
+.product-title {
+  font-size: 1.75rem;
 }
-.out-of-stock {
-  background-color: rgb(119, 23, 41);
+.product-buttons {
+  justify-self: flex-end;
+  justify-content: space-around;
+}
+.product-button {
+  color: black;
+}
+.card-image {
+  max-width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  object-position: 50% 100%;
 }
