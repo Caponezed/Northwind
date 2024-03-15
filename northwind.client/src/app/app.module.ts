@@ -22,6 +22,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatListModule } from '@angular/material/list';
 
+import { MatChipsModule } from '@angular/material/chips';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatProgressSpinnerModule,
     MatListModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

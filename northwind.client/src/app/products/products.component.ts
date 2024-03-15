@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Product from '../Models/Product';
-import { ProductService } from '../services/product.service';
+import { FetchingService } from '../services/fetching.service';
+import Category from '../Models/Category';
 
 @Component({
   selector: 'app-products',
@@ -8,15 +9,30 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  constructor(private productService: ProductService) {}
+  constructor(private fetchingService: FetchingService) {}
 
   title: string = 'Our products';
-
   products?: Product[];
+  categories?: Category[];
 
   ngOnInit(): void {
-    this.productService
-      .getAllProducts()
-      .subscribe((products: Product[]) => (this.products = products));
+    this.getAllProducts();
+    this.getAllCategories();
+  }
+
+  getAllProducts(): void {
+    this.fetchingService
+      .getAllItems<Product[]>('products')
+      .subscribe((products) => {
+        this.products = products;
+      });
+  }
+
+  getAllCategories(): void {
+    this.fetchingService
+      .getAllItems<Category[]>('categories')
+      .subscribe((categories) => {
+        this.categories = categories;
+      });
   }
 }

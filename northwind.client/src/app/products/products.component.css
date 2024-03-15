@@ -14,3 +14,6 @@
   margin: 0 auto;
   max-width: fit-content;
 }
+.chips-list {
+  margin: 16px;
+}
