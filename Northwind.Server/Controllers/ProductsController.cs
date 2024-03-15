@@ -31,6 +31,7 @@ namespace Northwind.Server.Controllers
                     productPrice = p.UnitPrice,
                     quantityPerProduct = p.QuantityPerUnit,
                     unitsInStock = p.UnitsInStock,
+                    ImageUrl = p.ImageUrl,
                 }).ToListAsync<Object>();
                 
             return Ok(await products);

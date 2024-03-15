@@ -30,4 +30,6 @@ public partial class Product
     public virtual ICollection<OrderDetail>? OrderDetails { get; } = new List<OrderDetail>();
 
     public virtual Supplier? Supplier { get; set; }
+
+    public virtual string ImageUrl { get; set; }
 }
