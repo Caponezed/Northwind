@@ -8,7 +8,6 @@
   <mat-chip-listbox aria-label="Fish selection" class="chips-list">
     <mat-chip-option
       *ngFor="let category of categories"
-      id="category.categoryId"
       (click)="filterProducts(category.categoryName)"
       >{{ category.categoryName }}</mat-chip-option
     >

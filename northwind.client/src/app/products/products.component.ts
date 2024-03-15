@@ -43,6 +43,7 @@ export class ProductsComponent implements OnInit {
     this.selectedCategory = newCategory;
 
     if (this.selectedCategory === 'All' || exCategory === newCategory) {
+      this.selectedCategory = 'All';
       this.visibleProducts = this.products;
       return;
     }
