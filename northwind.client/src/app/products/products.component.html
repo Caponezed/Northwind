@@ -6,14 +6,17 @@
   <h2 class="products-title">{{ title }}</h2>
 
   <mat-chip-listbox aria-label="Fish selection" class="chips-list">
-    <mat-chip-option *ngFor="let category of categories">{{
-      category.categoryName
-    }}</mat-chip-option>
+    <mat-chip-option
+      *ngFor="let category of categories"
+      id="category.categoryId"
+      (click)="filterProducts(category.categoryName)"
+      >{{ category.categoryName }}</mat-chip-option
+    >
   </mat-chip-listbox>
 
   <div class="product-cards">
     <app-product
-      *ngFor="let product of products"
+      *ngFor="let product of visibleProducts"
       [product]="product"
     ></app-product>
   </div>
